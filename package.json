@@ -1,0 +1,57 @@
+{
+  "name": "tachyons-components",
+  "version": "1.0.0-0",
+  "description": "React UI components powered by Tachyons with a styled-components like API",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "npm run build && babel src -d dist",
+    "start": "start-storybook -p 8000 -c storybook",
+    "build": "node scripts/parse.js",
+    "size": "bundlesize",
+    "cover": "npm t && nyc report --reporter=lcov --reporter=html",
+    "test": "nyc ava"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/react": "^3.2.3",
+    "ava": "^0.21.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "browser-env": "^3.1.2",
+    "bundlesize": "^0.13.2",
+    "css-to-object": "^1.1.0",
+    "nyc": "^11.1.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "tachyons": "^4.8.0"
+  },
+  "bundlesize": [
+    {
+      "path": "src/index.js"
+    },
+    {
+      "path": "src/css.js"
+    },
+    {
+      "path": "tachyons.json"
+    }
+  ],
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "exclude": [
+      "test",
+      "docs",
+      "storybook"
+    ]
+  }
+}
