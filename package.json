@@ -1,6 +1,6 @@
 {
   "name": "tachyons-components",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "React UI components powered by Tachyons with a styled-components like API",
   "main": "dist/index.js",
   "scripts": {
@@ -54,5 +54,17 @@
       "docs",
       "storybook"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxnblk/tachyons-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jxnblk/tachyons-components/issues"
+  },
+  "homepage": "https://github.com/jxnblk/tachyons-components#readme"
 }
