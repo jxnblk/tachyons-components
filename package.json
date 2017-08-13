@@ -8,7 +8,7 @@
     "start": "start-storybook -p 8000 -c storybook",
     "build": "node scripts/parse.js",
     "size": "bundlesize",
-    "cover": "npm t && nyc report --reporter=lcov --reporter=html",
+    "cover": "nyc report --reporter=html --reporter=lcov > coverage.lcov && codecov",
     "test": "nyc ava"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "babel-register": "^6.24.1",
     "browser-env": "^3.1.2",
     "bundlesize": "^0.13.2",
+    "codecov": "^2.3.0",
     "css-to-object": "^1.1.0",
     "nyc": "^11.1.0",
     "react": "^15.6.1",

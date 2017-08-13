@@ -1,6 +1,15 @@
 
 # tachyons-components
 
+[![Build Status][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+![Experimental](https://img.shields.io/badge/status-experimental-orange.svg?style=flat-square)
+
+[build-badge]: https://img.shields.io/travis/jxnblk/tachyons-components/master.svg?style=flat-square
+[build]: https://travis-ci.org/jxnblk/tachyons-components
+[coverage-badge]: https://img.shields.io/codecov/c/github/jxnblk/tachyons-components.svg?style=flat-square
+[coverage]: https://codecov.io/github/jxnblk/tachyons-components
+
 React UI components powered by [Tachyons][tachyons]
 with a [styled-components][sc] like API.
 
