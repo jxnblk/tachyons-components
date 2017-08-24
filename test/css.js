@@ -6,19 +6,24 @@ test.afterEach.always(() => {
 })
 
 test('css adds rules', t => {
-  css('.tomato{color:tomato}')
+  css(['.tomato{color:tomato}'])
   t.is(typeof css.css(), 'string')
   t.is(css.css(), '.tomato{color:tomato}')
 })
 
+test('css adds multiple rules', t => {
+  css(['.tomato{color:tomato}', '.tomato:hover{color:orange}'])
+  t.is(css.css(), '.tomato{color:tomato}.tomato:hover{color:orange}')
+})
+
 test('css dedupes', t => {
-  css('.tomato{color:tomato}')
-  css('.tomato{color:tomato}')
+  css(['.tomato{color:tomato}'])
+  css(['.tomato{color:tomato}'])
   t.is(css.css(), '.tomato{color:tomato}')
 })
 
 test('css resets', t => {
-  css('.tomato{color:tomato}')
+  css(['.tomato{color:tomato}'])
   css.reset()
   t.is(css.css(), '')
 })

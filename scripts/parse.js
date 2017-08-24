@@ -43,7 +43,7 @@ const parsed = Object.keys(obj)
     ...a,
     ...(Array.isArray(b) ? b : [ b ])
   ], [])
-  .reduce((a, b) => Object.assign(a, { [b.key]: b.value }), {})
+  .reduce((a, b) => Object.assign(a, { [b.key]: [b.value] }), {})
 
 const json = JSON.stringify(parsed, null, 2)
 

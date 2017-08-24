@@ -2,10 +2,12 @@ let cache = {}
 const rules = []
 let insert = rule => rules.push(rule)
 
-const css = rule => {
-  if (cache[rule]) return
-  insert(rule)
-  cache[rule] = true
+const css = rs => {
+  rs.forEach(rule => {
+    if (cache[rule]) return
+    insert(rule)
+    cache[rule] = true
+  })
 }
 
 css.css = () => rules.join('')
