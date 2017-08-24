@@ -14,3 +14,12 @@ test('parses media queries', t => {
     'aspect-ratio-ns': ['@media screen and (min-width: 30em){.aspect-ratio-ns{height:0;position:relative}}']
   })
 })
+
+test('parses pseudo classes', t => {
+  const css = '.tomato{color:tomato}.tomato:hover{color:orange}.cucumber:focus{color:green}.shadow::after{color:red}'
+  t.deepEqual(parser(css), {
+    tomato: ['.tomato{color:tomato}', '.tomato:hover{color:orange}'],
+    cucumber: ['.cucumber:focus{color:green}'],
+    shadow: ['.shadow::after{color:red}']
+  })
+})
