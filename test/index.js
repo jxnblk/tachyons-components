@@ -37,3 +37,13 @@ test('handles template tokens', t => {
   t.is(a.props.className, '')
   t.is(b.props.className, 'bg-blue')
 })
+
+test('handles template tokens when more than one class returned', t => {
+  const A = styled('div')`
+    ${props => props.foo ? 'bg-blue grow' : null}
+  `
+  const a = render(<A />).toJSON()
+  const b = render(<A foo />).toJSON()
+  t.is(a.props.className, '')
+  t.is(b.props.className, 'bg-blue grow')
+})
