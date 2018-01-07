@@ -16,6 +16,7 @@ const styled = type => (strings, ...tokens) => {
       .map(token => token(props))
       .filter(n => n !== null && n !== undefined)
       .map(n => n.split(/\s+/))
+      .reduce((a, b) => [ ...a, ...b ], [])
     keys.map(key => dict[key])
       .filter(n => n !== undefined)
       .forEach(css)
