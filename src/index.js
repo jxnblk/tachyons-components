@@ -2,6 +2,13 @@ const h = require('react').createElement
 const css = require('./css')
 const dict = require('../tachyons.json')
 
+const flatten = arr =>
+  arr.reduce(
+    (acc, val) =>
+      Array.isArray(val) ? [...acc, ...flatten(val)] : [...acc, val],
+    []
+  )
+
 const styled = type => (strings, ...tokens) => {
   const staticKeys = strings
     .map(str => str.split(/\s+/))
@@ -12,10 +19,12 @@ const styled = type => (strings, ...tokens) => {
     .forEach(css)
 
   const Component = props => {
-    const keys = tokens
+    const keys = flatten(
+      tokens
       .map(token => token(props))
       .filter(n => n !== null && n !== undefined)
       .map(n => n.split(/\s+/))
+    )
     keys.map(key => dict[key])
       .filter(n => n !== undefined)
       .forEach(css)
