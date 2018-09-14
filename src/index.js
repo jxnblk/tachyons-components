@@ -2,6 +2,8 @@ const h = require('react').createElement
 const css = require('./css')
 const dict = require('../tachyons.json')
 
+const concat = (a, b) => a.concat(b)
+
 const styled = type => (strings, ...tokens) => {
   const staticKeys = strings
     .map(str => str.split(/\s+/))
@@ -16,6 +18,7 @@ const styled = type => (strings, ...tokens) => {
       .map(token => token(props))
       .filter(n => n !== null && n !== undefined)
       .map(n => n.split(/\s+/))
+      .reduce(concat, [])
     keys.map(key => dict[key])
       .filter(n => n !== undefined)
       .forEach(css)
