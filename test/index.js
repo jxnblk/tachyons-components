@@ -37,3 +37,11 @@ test('handles template tokens', t => {
   t.is(a.props.className, '')
   t.is(b.props.className, 'bg-blue')
 })
+
+test('combines classNames returned from function', t => {
+  const A = styled('div')`
+    ${props => props.hello ? 'f6 blue' : null}
+  `
+  const a = render(<A hello />).toJSON()
+  t.is(a.props.className, 'f6 blue')
+})
