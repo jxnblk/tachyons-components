@@ -1,6 +1,6 @@
 {
   "name": "tachyons-components",
-  "version": "1.0.0-1",
+  "version": "1.0.0",
   "description": "React UI components powered by Tachyons with a styled-components like API",
   "main": "dist/index.js",
   "scripts": {

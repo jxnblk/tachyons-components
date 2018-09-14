@@ -5,3 +5,5 @@ scripts
 test
 coverage
 .nyc_output
+storybook
+.travis.yml
